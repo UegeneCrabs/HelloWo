@@ -15,14 +15,9 @@ public class TreeSort {
         System.out.print("---Input size of array: ");
         int str = nas.nextInt();
 
-
-
-
-
-
         int y = 1;
         do {
-            int[] mas = new int[]{42,7,15};
+            int[] mas = new int[str];
             chetperest = 0;
             chetsravn = 0;
             System.out.println();
