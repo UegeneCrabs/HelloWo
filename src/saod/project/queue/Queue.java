@@ -11,7 +11,6 @@ public class Queue {
         int dlina = sc.nextInt();
         int[] mas = new int[dlina];
 
-
         do {
 
             System.out.println();

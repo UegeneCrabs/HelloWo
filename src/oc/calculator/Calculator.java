@@ -189,7 +189,7 @@ public class Calculator {
         btnClear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                total2 = 0;
+                total2 = 0; // sender
                 textDisplay.setText("");
             }
         });
