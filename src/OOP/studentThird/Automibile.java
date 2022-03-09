@@ -14,22 +14,27 @@ public class Automibile {
         Auto = new ExThirdAuto[StartSize];//тут задается начальная длина этого массива
     }
 
+
     public int getAutoCount(){
         return AutoCount;
     }
+
 
     public String getCompName(){
         return CompName;
     }
 
+
     public void setCompName(String newCompName){
         CompName = newCompName;
     }
+
 
     public ExThirdAuto getExThirdAuto(int nom) {
         if (nom > 0 && nom >= ArrSize) {return Auto[nom];}
         else return null;
     }
+
 
     public boolean setExThirdAuto(int nom, ExThirdAuto newExThirdAuto){
         if (nom > 0) {
@@ -37,6 +42,7 @@ public class Automibile {
             return true;}
         else return false;
     }
+
 
     public boolean AddAuto(ExThirdAuto newExthirdAuto){
         if (ArrSize == AutoCount){
@@ -52,12 +58,14 @@ public class Automibile {
         return true;
     }
 
+
     public float SumCompany(){
         for (int i = 0; i < AutoCount; i++){
             SumAutomobile += Auto[i].setSumSold();
         }
         return SumAutomobile;
     }
+
 
     public String getDataCompany(){
         String data = "";
@@ -66,6 +74,7 @@ public class Automibile {
         }
         return data;
     }
+
 
     public String SearchAuto(int j){
         String Poisk = "";
@@ -77,6 +86,7 @@ public class Automibile {
         return Poisk;
     }
 
+
     public void SearchAutoString(String Izmenenie){
 
         for (int i = 0; i < AutoCount; i++){
@@ -86,6 +96,7 @@ public class Automibile {
         else System.out.println( "Такого Гос.номера нет.");
         }
     }
+
 
     public void AddAutoToGos(String gosnom,String Izmenenie){
 
@@ -98,6 +109,7 @@ public class Automibile {
         }
     }
 
+
     public float[] PoiskAuto(int search){
         float[] Pois = new float[7];
         for (int i = 0; i < AutoCount; i++){
@@ -108,6 +120,5 @@ public class Automibile {
         return Pois;
     }
 
-    public void setGosNumber(String GosNumber) {
-    }
+
 }
