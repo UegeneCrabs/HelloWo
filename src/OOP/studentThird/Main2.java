@@ -120,6 +120,6 @@ public class Main2 {
             }
 
             }
-        } while (chooseAuto.equals("7") == false);
+        } while (!chooseAuto.equals("7"));
     }
 }
