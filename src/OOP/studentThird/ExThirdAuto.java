@@ -6,8 +6,6 @@ public class ExThirdAuto {
 
         private String _GosNumber;
 
-        public String Rashod;
-
         public float _Toplivo = 0;
 
         private float sum = 0;
@@ -21,10 +19,11 @@ public class ExThirdAuto {
 
     public ExThirdAuto(String GosNumber) {
             if (!GosNumber.isEmpty()) {this._GosNumber = GosNumber;}
+            else System.out.println("This String is empty.");
             Rachod = new float[7];
     }
 
-    public String getGosNumber() {return this._GosNumber;}
+    public String getGosNumber() {return _GosNumber;}
 
     public void setGosNumber(String GosNumber) {
         if (!GosNumber.isEmpty()) {

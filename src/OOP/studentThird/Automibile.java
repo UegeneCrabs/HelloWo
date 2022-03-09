@@ -77,6 +77,27 @@ public class Automibile {
         return Poisk;
     }
 
+    public void SearchAutoString(String Izmenenie){
+
+        for (int i = 0; i < AutoCount; i++){
+            if (Auto[i].getGosNumber().equals(Izmenenie)) {
+                System.out.println("Найден!");
+            }
+        else System.out.println( "Такого Гос.номера нет.");
+        }
+    }
+
+    public void AddAutoToGos(String gosnom,String Izmenenie){
+
+        for (int i = 0; i < AutoCount; i++){
+            if (Auto[i].getGosNumber().equals(gosnom)) {
+                Auto[i].setGosNumber(Izmenenie);
+                System.out.println("Успешно!");
+            }
+            else System.out.println( "Такого Гос.номера нет.");
+        }
+    }
+
     public float[] PoiskAuto(int search){
         float[] Pois = new float[7];
         for (int i = 0; i < AutoCount; i++){
@@ -85,5 +106,8 @@ public class Automibile {
             }
         }
         return Pois;
+    }
+
+    public void setGosNumber(String GosNumber) {
     }
 }

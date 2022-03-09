@@ -1,6 +1,6 @@
 package OOP.studentThird;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Main2 {
@@ -8,17 +8,18 @@ public class Main2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Automibile Zheka = new Automibile("Компания Женька", 10);
-        int chooseAuto,choose, num, izmenenie, chet,search;
+        int chooseAuto,choose, izmenenie, chet,search;
         float count, znachenie;
-        String name;
+        String name, searchString;
         do {
             System.out.println("------------МЕНЮ-1-----------");
             System.out.println("1 - Добавить Автомобиль;");
             System.out.println("2 - Получить информацию об одном автомобиле;");
             System.out.println("3 - Получить информацию обо всех автомобилях;");
-            System.out.println("4 - Изменить значение топлива.");
-            System.out.println("5 - Получить сумму топлива всех авто.");
-            System.out.println("6 - Выход.");
+            System.out.println("4 - Изменить значение топлива;");
+            System.out.println("5 - Изменить Гос.номер автомобиля;");
+            System.out.println("6 - Получить сумму топлива всех авто;");
+            System.out.println("7 - Выход.");
             chet = 1;
 
             chooseAuto = sc.nextInt();
@@ -34,8 +35,9 @@ public class Main2 {
                         System.out.println("------------МЕНЮ-2------------");
                         System.out.println("1 - Добавить расход топлива;");
                         System.out.println("2 - Изменить расход топлива;");
-                        System.out.println("3 - Общая информация;");
-                        System.out.println("4 - Выход.");
+                        System.out.println("3 - Изменить Гос. номер автомобиля");
+                        System.out.println("4 - Общая информация;");
+                        System.out.println("5 - Выход.");
                         System.out.println();
                         choose = sc.nextInt();
 
@@ -60,10 +62,14 @@ public class Main2 {
                                 System.out.println();
                             }
                             case 3 -> {
-                                System.out.println(Automobil.getData());
+                                System.out.println("Введите новый Гос.номер автомобиля");
+                                searchString = sc.next();
+                                Automobil.setGosNumber(searchString);
                             }
+                            case 4 -> System.out.println(Automobil.getData());
+
                         }
-                    }while (choose != 4) ;
+                    }while (choose != 5) ;
 
                     System.out.println(Zheka.getAutoCount());
                 }
@@ -72,11 +78,9 @@ public class Main2 {
                 search = sc.nextInt();
                 System.out.println("\n" + Zheka.SearchAuto(search));
             }
-            case 3 -> {
-                System.out.println(Zheka.getDataCompany());
-            }
+            case 3 -> System.out.println(Zheka.getDataCompany());
             case 4 -> {
-                    float[] Massiv = new float[7];
+                    float[] Massiv;
                 System.out.print("\nВведите индекс автомобиля: ");
                 search = sc.nextInt();
                 Massiv = Zheka.PoiskAuto(search);
@@ -90,11 +94,19 @@ public class Main2 {
                 }
                 System.out.println("\nВыполнено");
             }
-            case 5 ->{
+            case 5 -> {
+                System.out.print("\nВведите Гос.номер автомобиля: ");
+                String gosnom = sc.next();
+                Zheka.SearchAutoString(gosnom);
+                System.out.println("Введите новый Гос.номер автомобиля:");
+                String Search2 = sc.next();
+                Zheka.AddAutoToGos(gosnom, Search2);
+            }
+            case 6 ->{
                 System.out.println("\nВсего потрачено всеми автомобилями:");
                 System.out.println(Zheka.SumCompany());
             }
             }
-        } while (chooseAuto != 6);
+        } while (chooseAuto != 7);
     }
 }
