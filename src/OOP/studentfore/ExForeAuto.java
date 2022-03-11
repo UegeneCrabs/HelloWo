@@ -1,33 +1,41 @@
-package OOP.studentThird;
+package OOP.studentfore;
 
 import java.util.Arrays;
 
-public class ExThirdAuto {
+public class ExForeAuto {
 
-        private String _GosNumber;//
+        private ExForeAuto _nextCar;
 
-        public float _Toplivo = 0;
+        private static String _GosNumber;
 
-        private float sum = 0;
+        public static float _Toplivo = 0;
 
-        private final float[] Rachod;//
+        private static float sum = 0;
 
-        private int index = 0;//
+        private static float[] Rachod = new float[7];
 
-        private int Kolvo = 0;//
+        private static int index = 0;
+
+        private static int Kolvo = 0;
 
 
-    public ExThirdAuto(String GosNumber) {
+    public ExForeAuto(String GosNumber,ExForeAuto nextCar) {
             if (!GosNumber.isEmpty()) {this._GosNumber = GosNumber;}
-            else System.out.println("This String is empty.");
-            Rachod = new float[7];
+            _nextCar = null;
     }
 
-    public String getGosNumber() {return _GosNumber;}
+    public ExForeAuto get_nextCar(){return _nextCar;}
 
-    public void setGosNumber(String GosNumber) {
+    public void set_nextCar(ExForeAuto nextCar)
+    {
+        _nextCar = nextCar;
+    }
+
+    public static String getGosNumber() {return _GosNumber;}
+
+    public static void setGosNumber(String GosNumber) {
         if (!GosNumber.isEmpty()) {
-            this._GosNumber = GosNumber;}
+            _GosNumber = GosNumber;}
         else {System.out.println("this String is empty");}
     }
 
@@ -42,13 +50,13 @@ public class ExThirdAuto {
         return Rachod;
     }
 
-    public float setRachod(float NewToplivo, int index){
+    public static float setRachod(float NewToplivo, int index){
         if (index < 10 && NewToplivo >= 0 && NewToplivo <= 300){
             return Rachod[index] = NewToplivo;}
         else {return -1;}
     }
 
-    public boolean addRachod(float NewToplivo){
+    public static boolean addRachod(float NewToplivo){
 
         if (Rachod.length <= 10 && NewToplivo >= 0 && NewToplivo <= 300){
             Kolvo++;
@@ -59,7 +67,7 @@ public class ExThirdAuto {
         else {return false;}
     }
 
-    public float setSumSold(){
+    public static float setSumSold(){
         sum = 0;
         for (int i = 0; i < 7;i++){
             sum = sum + Rachod[i];
@@ -67,14 +75,14 @@ public class ExThirdAuto {
         return sum;
     }
 
-    public String getData(){
+    public static String getData(){
         String GosNum = "\nГос номер: " + getGosNumber();
         GosNum = GosNum + "\nИспользование топлива по дням: " + Arrays.toString(getDate());
         GosNum = GosNum + "\nСуммарное количество потраченного топлива за " + Kolvo + " дня: " + setSumSold();
         return GosNum;
     }
 
-    public float[] getDate(){
+    public static float[] getDate(){
         return Rachod;
     }
     }

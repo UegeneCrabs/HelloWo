@@ -3,9 +3,10 @@ package OOP.studentThird;
 public class Automibile {
     private ExThirdAuto[] Auto;//вот тут создание массива типа EXThirdAuto
     private int AutoCount;     //где ExThirdAuto это мой класс, где реализованы
-    private int ArrSize;       //методы обьекта
+    private int ArrSize;       //методы объекта
     private String CompName;
     private float SumAutomobile;
+    private boolean pravda;
 
     public Automibile(String compName, int StartSize){
         CompName = compName;
@@ -68,11 +69,11 @@ public class Automibile {
 
 
     public String getDataCompany(){
-        String data = "";
+        StringBuilder data = new StringBuilder();
         for (int i = 0; i < AutoCount; i++){
-            data = data +"\n" + Auto[i].getData();
+            data.append("\n").append(Auto[i].getData());
         }
-        return data;
+        return data.toString();
     }
 
 
@@ -87,26 +88,27 @@ public class Automibile {
     }
 
 
-    public void SearchAutoString(String Izmenenie){
-
+    public String SearchAutoString(String Izmenenie){
         for (int i = 0; i < AutoCount; i++){
             if (Auto[i].getGosNumber().equals(Izmenenie)) {
-                System.out.println("Найден!");
+                return "Успешно!";
             }
-        else System.out.println( "Такого Гос.номера нет.");
+        else return "Такого Гос.номера нет!";
         }
+        return "";
     }
 
 
-    public void AddAutoToGos(String gosnom,String Izmenenie){
+    public boolean AddAutoToGos(String gosnom,String Izmenenie){
 
         for (int i = 0; i < AutoCount; i++){
             if (Auto[i].getGosNumber().equals(gosnom)) {
                 Auto[i].setGosNumber(Izmenenie);
-                System.out.println("Успешно!");
+                pravda = true;
             }
-            else System.out.println( "Такого Гос.номера нет.");
+            else pravda = false;
         }
+        return pravda;
     }
 
 
@@ -121,4 +123,5 @@ public class Automibile {
     }
 
 
+   
 }

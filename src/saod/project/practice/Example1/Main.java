@@ -20,8 +20,8 @@ public class Main {
         tree.printTree();
 
         // удаляем один узел и выводим оставшееся дерево в консоли
-        //tree.deleteNode(5);
-        //tree.printTree();
+        tree.deleteNode(5);
+        tree.printTree();
 
         // находим узел по значению и выводим его в консоли
         Node foundNode = tree.findNodeByValue(7);
