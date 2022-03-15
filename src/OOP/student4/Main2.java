@@ -1,19 +1,22 @@
-package OOP.studentfore;
+package OOP.student4;
 
 
-import OOP.studentThird.Automibile;
-import OOP.studentThird.ExThirdAuto;
+import OOP.student4.CompanyList;
+import OOP.student4.OneAuto;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main2 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        OOP.studentfore.AutomibileList Eugene = new AutomibileList("Компания Женька");
+        CompanyList Eugene = new CompanyList("Компания Женька");
         int choose, izmenenie, chet,search;
         float count, znachenie;
         String chooseAuto,name, searchString;
+        OneAuto kaknibud;
+
+
         do {
             System.out.println("------------МЕНЮ-1-----------");
             System.out.println("1 - Добавить Автомобиль;");
@@ -32,14 +35,19 @@ public class Main {
 
                     System.out.print("Введите Гос номер автомобиля: ");
                     name = sc.next();
+
                     Eugene.AddAuto(name);
                     System.out.println("Успешно!");
 
                 }
                 case "2" -> {
-                    System.out.print("Введите Гос номер автомобиля: ");
-                    name = sc.next();
-                    Eugene.FindAuto(name);
+                    do {
+                        System.out.print("Введите Гос номер автомобиля: ");
+                        name = sc.next();
+                        if (Eugene.FindAuto(name) == null) {
+                            System.out.println("ты еблан!");
+                        }
+                    } while (Eugene.FindAuto(name) == null);
                     do {
                         System.out.println();
                         System.out.println("------------МЕНЮ-2------------");
@@ -58,7 +66,7 @@ public class Main {
                                 System.out.println();
                                 System.out.println("Введите расход топлива для " + chet + " дня");
                                 count = sc.nextFloat();
-                                ExForeAuto.addRachod(count);
+                                Eugene.FindAuto(name).addRachod(count);
                                 System.out.println();
                                 chet++;
                             }
@@ -69,30 +77,28 @@ public class Main {
                                 izmenenie = sc.nextInt();
                                 System.out.println("Введите новое значение: ");
                                 znachenie = sc.nextFloat();
-                                ExForeAuto.setRachod(znachenie, izmenenie);
+                                Eugene.FindAuto(name).setRachod(znachenie, izmenenie);
                                 System.out.println();
                             }
 
                             case 3 -> {
                                 System.out.println("Введите новый Гос.номер автомобиля");
                                 searchString = sc.next();
-                                ExForeAuto.setGosNumber(searchString);
+                                Eugene.FindAuto(name).setGosNumber(searchString);
                             }
 
-                            case 4 -> System.out.println(ExForeAuto.getData());
+                            case 4 -> System.out.println(Eugene.FindAuto(name).getData());
 
                         }
 
-                    }while (choose != 5) ;
-                    System.out.println(Eugene.getAutoCount());
+                    }while (choose != 5);
                 }
-
-
 
             case "3" -> {
                 System.out.print("\nВведите Гос.номер автомобиля: ");
                 searchString = sc.next();
-                System.out.println("\n" + Eugene.FindAuto(searchString));
+                kaknibud = Eugene.FindAuto(searchString);
+                System.out.println(kaknibud.getData());
             }
 
             case "4" -> System.out.println(Eugene.getDataCompany());

@@ -2,8 +2,8 @@ package OOP.studentThird;
 
 public class Automibile {
     private ExThirdAuto[] Auto;//вот тут создание массива типа EXThirdAuto
-    private int AutoCount;     //где ExThirdAuto это мой класс, где реализованы
-    private int ArrSize;       //методы объекта
+    private int AutoCount;
+    private int ArrSize;
     private String CompName;
     private float SumAutomobile;
     private boolean pravda;
@@ -21,28 +21,28 @@ public class Automibile {
     }
 
 
-    public String getCompName(){
+    /*public String getCompName(){
         return CompName;
-    }
+    }*/
 
 
-    public void setCompName(String newCompName){
+    /*public void setCompName(String newCompName){
         CompName = newCompName;
-    }
+    }*/
 
 
-    public ExThirdAuto getExThirdAuto(int nom) {
+    /*public ExThirdAuto getExThirdAuto(int nom) {
         if (nom > 0 && nom >= ArrSize) {return Auto[nom];}
         else return null;
-    }
+    }*/
 
 
-    public boolean setExThirdAuto(int nom, ExThirdAuto newExThirdAuto){
+    /*public boolean setExThirdAuto(int nom, ExThirdAuto newExThirdAuto){
         if (nom > 0) {
             Auto[nom] = newExThirdAuto;
             return true;}
         else return false;
-    }
+    }*/
 
 
     public boolean AddAuto(ExThirdAuto newExthirdAuto){
