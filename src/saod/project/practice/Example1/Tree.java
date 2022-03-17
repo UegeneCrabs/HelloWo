@@ -6,6 +6,7 @@ public class Tree {
 
         private Node rootNode;               // корневой узел
 
+
         public Tree() { // Пустое дерево
             rootNode = null;
         }
